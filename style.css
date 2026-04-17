@@ -1,27 +1,13 @@
 @import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
-
-:root {
-  --color-primary: #0EA5E9;
-  --color-secondary: #38BDF8;
-  --color-cta: #F97316;
-  --color-bg: #F0F9FF;
-  --color-text: #0C4A6E;
-}
-
 * {
   scroll-behavior: smooth;
+  box-sizing: border-box;
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
-  background-color: var(--color-bg);
-  color: var(--color-text);
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {
