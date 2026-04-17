@@ -9,22 +9,32 @@ function IronModel() {
       {/* Corps principal */}
       <mesh>
         <boxGeometry args={[1.5, 0.6, 0.8]} />
-        <meshStandardMaterial color="#3b82f6" metalness={0.6} roughness={0.2} />
+        <meshBasicMaterial color="#3b82f6" />
+      </mesh>
+      {/* Face avant (relief) */}
+      <mesh position={[0, 0, 0.41]}>
+        <boxGeometry args={[1.4, 0.5, 0.02]} />
+        <meshBasicMaterial color="#60a5fa" />
       </mesh>
       {/* Poignée */}
       <mesh position={[0.4, 0.5, 0]}>
-        <boxGeometry args={[0.6, 0.2, 0.4]} />
-        <meshStandardMaterial color="#111827" metalness={0.8} roughness={0.3} />
+        <boxGeometry args={[0.6, 0.22, 0.4]} />
+        <meshBasicMaterial color="#1e3a5f" />
       </mesh>
       {/* Semelle */}
       <mesh position={[0, -0.38, 0]}>
         <boxGeometry args={[1.55, 0.08, 0.82]} />
-        <meshStandardMaterial color="#93c5fd" metalness={0.9} roughness={0.1} />
+        <meshBasicMaterial color="#93c5fd" />
       </mesh>
       {/* Bouton vapeur */}
       <mesh position={[-0.3, 0.35, 0]}>
-        <cylinderGeometry args={[0.1, 0.1, 0.1, 16]} />
-        <meshStandardMaterial color="#60a5fa" metalness={0.5} roughness={0.3} />
+        <cylinderGeometry args={[0.1, 0.1, 0.12, 16]} />
+        <meshBasicMaterial color="#f97316" />
+      </mesh>
+      {/* Logo / ligne déco */}
+      <mesh position={[0, 0.02, 0.42]}>
+        <boxGeometry args={[0.6, 0.04, 0.01]} />
+        <meshBasicMaterial color="#bfdbfe" />
       </mesh>
     </Float>
   );
@@ -138,12 +148,13 @@ export default function App() {
           <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full opacity-20 blur-3xl" style={{ background: "#3b82f6" }} />
           </div>
-          <Canvas camera={{ position: [2, 2, 4] }}>
-            <ambientLight intensity={0.5} />
-            <directionalLight position={[3, 3, 3]} intensity={1.4} color="#ffffff" />
-            <directionalLight position={[-2, -1, -2]} intensity={0.6} color="#60a5fa" />
-            <pointLight position={[0, 3, 0]} intensity={0.8} color="#3b82f6" />
-            <pointLight position={[2, -2, 2]} intensity={0.5} color="#f97316" />
+          <Canvas camera={{ position: [0, 0.5, 3.5], fov: 50 }}>
+            <ambientLight intensity={2.5} />
+            <directionalLight position={[5, 5, 5]} intensity={3} color="#ffffff" />
+            <directionalLight position={[-3, 2, 3]} intensity={2} color="#93c5fd" />
+            <directionalLight position={[0, -3, 2]} intensity={1.5} color="#ffffff" />
+            <pointLight position={[0, 4, 0]} intensity={2} color="#60a5fa" />
+            <pointLight position={[-3, -2, 3]} intensity={1.5} color="#f97316" />
             <IronModel />
             <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={1.5} />
           </Canvas>
