@@ -1,4 +1,9 @@
 import './style.css'
+import { initScene } from './src/scene3d.js'
+
+// Init 3D scene
+const canvas3d = document.getElementById('canvas3d')
+if (canvas3d) initScene(canvas3d)
 
 // Mobile menu toggle
 const menuBtn = document.getElementById('menu-btn')
